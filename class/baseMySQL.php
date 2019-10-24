@@ -1,9 +1,10 @@
 <?php
 
 class BaseMySQL extends BaseDatos{
-    static public function conexion($host,$db_nombre,$usuario,$password,$puerto,$charset){
+
+    static public function conexion($host,$db,$usuario,$password,$puerto,$charset){
         try {
-            $dsn = "mysql:host=".$host.";"."dbname=".$db_nombre.";"."port=".$puerto.";"."charset=".$charset;
+            $dsn = "mysql:host=".$host.";"."dbname=".$db.";"."port=".$puerto.";"."charset=".$charset;
             $baseDatos = new PDO($dsn,$usuario,$password);
             $baseDatos->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             return $baseDatos;
@@ -20,6 +21,15 @@ class BaseMySQL extends BaseDatos{
         $query->execute();
         $usuario = $query->fetch(PDO::FETCH_ASSOC);
         return $usuario;
+    }
+
+    static public function buscarRegistro($pdo,$tabla,$campo,$busqueda){
+        $sql = "select * from $tabla where $campo = :busqueda";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':busqueda',$busqueda);
+        $query->execute();
+        $registro = $query->fetch(PDO::FETCH_ASSOC);
+        return $registro;
     }
 
     static public function guardarUsuario($pdo, $usuario){
@@ -39,6 +49,14 @@ class BaseMySQL extends BaseDatos{
         $guardarUsu->execute();
     }
 
+    static public function guardarCategoria($pdo, $categoria){
+        $sql = "INSERT INTO categorias VALUES(default, :nombre)";
+
+        $guardarCat = $pdo->prepare($sql);
+        $guardarCat->bindValue(':nombre', $categoria->getNombre());
+        $guardarCat->execute();
+    }
+
     public function leer(){
         //A futuro trabajaremos en esto
     }
@@ -52,13 +70,12 @@ class BaseMySQL extends BaseDatos{
         //Este fue el método usao para json
     }
 
-  static public function verRegistros(){
-    $sql = "select * from usuarios order by id";
+  static public function verRegistros($tabla){
+    $sql = "select * from '$tabla'";
     $query = $pdo->prepare($sql);
     $query->execute();
     $registros = $query->fetch(PDO::FETCH_ASSOC);
     return $registros;
-
   }
 }
 

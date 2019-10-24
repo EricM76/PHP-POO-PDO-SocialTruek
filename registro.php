@@ -1,5 +1,6 @@
 <?php
 include("autoload.php");
+
 if ($_POST){
 
   $errores = $validador->validarRegistro($_POST);
@@ -17,7 +18,7 @@ if ($_POST){
         $avatar = null;
 
         $usuario = ArmarRegistro::armarUsuario($_POST, $avatar);
-        BaseMYSQL::guardarUsuario($pdo, $usuario);
+        BaseMySQL::guardarUsuario($pdo, $usuario);
       }
   }else{
     var_dump($errores);

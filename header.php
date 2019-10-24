@@ -5,7 +5,7 @@
    <div class="container-fluid">
 
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-   <a class="navbar-brand" href="#">SocialTruek</a>
+   <a class="navbar-brand" href="index.php">SocialTruek</a>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
      <span class="navbar-toggler-icon"></span>
    </button>
@@ -39,7 +39,7 @@
            Categorias
          </a>
          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-           <a class="dropdown-item" href="categoria.php">Nueva</a>
+           <a class="dropdown-item" href="categoria.php" >Nueva</a>
            <a class="dropdown-item" href="categorias.php">Ver</a>
          </div>
        </li>

@@ -1,6 +1,5 @@
 <?php
 include("autoload.php");
-
  ?>
  <!DOCTYPE html>
  <html lang="es" dir="ltr">
@@ -37,21 +36,55 @@ include("autoload.php");
         <tbody>
           <?php foreach ($registros as $registro): ?>
           <tr>
-            <th scope="row"><?=$registro["id"]?></th>
+            <th scope="row"><a href="perfil.php?id=<?=$registro["id"]?>"><?=$registro["id"]?></a></th>
             <td><?=$registro["nombre"]?></td>
             <td><?=$registro["apellido"]?></td>
             <td><?=$registro["email"]?></td>
             <td><?=$registro["pass"]?></td>
             <td><?=$registro["fecha"]?></td>
             <td><?=$registro["sexo"]?></td>
-            <td><?=$registro["avatar"]?></td>
-            <td><?=$registro["perfil"]?></td>
+            <td>
+              <?php
+                if ($registro["avatar"]!=null) {
+                  ?>
+                  <a href="registros.php?id=<?=$registro["id"]?>"><?=$registro["avatar"]?></a>
+                  <?php
+                  // echo $registro["avatar"];
+                }else {?>
+                  <a href="registros.php?id=<?=$registro["id"]?>">agregar</a>
+
+              <?php } ?>
+            </td>
+
+            <td>
+              <?php
+                if ($registro["perfil"]!=null) {
+                  echo $registro["perfil"];
+                }else {?>
+                  <a href="#">agregar</a>
+              <?php } ?>
+            </td>
+
             <td><?=$registro["val_user"]?></td>
           </tr>
         <?php endforeach; ?>
         </tbody>
        </table>
      </div>
-     <?php include("javascript.php") ?>
+
+
+     <?php
+     include_once("editarAvatar.php");
+     include_once("javascript.php");
+     ?>
+     <?php if (isset($_GET["id"])): ?>
+       <script type="text/javascript">
+        $(function(){
+         $("#avatar").modal();
+        });
+       </script>
+     <?php endif; ?>
+
+
    </body>
  </html>

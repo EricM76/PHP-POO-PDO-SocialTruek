@@ -35,6 +35,14 @@ class ArmarRegistro{
 
     return $usuario;
   }
+
+  public static function armarCategoria($datos){
+
+    $categoria = new Categoria($datos["categoria"]);
+
+    return $categoria;
+  }
+
 }
 
  ?>
