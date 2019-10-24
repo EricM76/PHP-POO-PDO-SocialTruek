@@ -10,5 +10,5 @@ if (isset($_GET["avatar"])) {
   ArmarRegistro::cambiarAvatar($_GET["id"], $_GET["avatar"],$pdo);
   header("location:registros.php");
 }
-varDump($_GET);
+  ArmarRegistro::guardarPerfil($pdo,$_POST["id"],$_FILES)
 ?>

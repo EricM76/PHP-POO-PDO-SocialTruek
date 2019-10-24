@@ -67,11 +67,11 @@
 
           <div class="d-flex mt-5">
             <div class="d-flex justify-content-center col-12">
-              <form class="form" action="cambiarAvatar.php" method="get" enctype="multipart/form-data">
+              <form class="form" action="cambiarAvatar.php" method="POST" enctype="multipart/form-data">
                 <h5 class="mt-3">O sube tu propia imagen</h5>
                 <div class="input-group mt-3">
                   <div class="custom-file">
-                    <input id="inputGroupFile01" type="file" class="custom-file-input" name="archivo">
+                    <input id="inputGroupFile01" type="file" class="custom-file-input" name="imagen">
                     <label class="custom-file-label" for="inputGroupFile01">elegir foto de perfil</label>
                   </div>
                   <button class="btn btn-primary ml-2" value=<?=$_GET["id"]?> type="submit" name="id">Aceptar</button>

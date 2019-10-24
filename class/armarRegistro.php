@@ -48,6 +48,18 @@ class ArmarRegistro{
     $query = $pdo->prepare($sql);
     $query->execute();
   }
+
+  public static function guardarPerfil($pdo,$id,$imagen){
+    $nombre = $imagen["imagen"]["name"];
+    $ext = pathinfo($nombre, PATHINFO_EXTENSION);
+    $archivoOrigen = $imagen["imagen"]["tmp_name"];
+    $rutaDestino = dirname(__DIR__);
+    $rutaDestino = $rutaDestino."/images/perfil/";
+    $nombreImg = uniqid();
+    $rutaDestino = $rutaDestino.".".$nombreImg.".".$ext;
+    move_uploaded_file ($archivoOrigen, $rutaDestino);
+
+  }
 }
 
  ?>
