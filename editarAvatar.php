@@ -9,7 +9,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <h5 class="text-center mb-3">Elige un avatar</h5>
+        <h5 class="text-center mb-3">cambia un avatar</h5>
         <?php $id=$_GET["id"]?>
             <a href="cambiarAvatar.php?avatar=images/avatar/perfilDesconocido.png & id=<?=$id?>"><img src="images/avatar/perfilDesconocido.png" style="width:80px"></a>
 
