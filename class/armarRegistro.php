@@ -43,6 +43,11 @@ class ArmarRegistro{
     return $categoria;
   }
 
+  public static function cambiarAvatar($id,$avatar,$pdo){
+    $sql = "UPDATE usuarios SET avatar ='$avatar' WHERE id ='$id'";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+  }
 }
 
  ?>
