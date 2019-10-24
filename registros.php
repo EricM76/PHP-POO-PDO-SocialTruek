@@ -12,10 +12,7 @@ include("autoload.php");
    <body class="">
      <div class="container-fluid mt-3">
        <?php
-       $sql = "SELECT * FROM usuarios";
-       $query = $pdo->prepare($sql);
-       $query->execute();
-       $registros = $query->fetchAll(PDO::FETCH_ASSOC);
+       $registros=BaseMySQL::verRegistros($pdo,'usuarios');
        ?>
        <table class="table table-
        light small">

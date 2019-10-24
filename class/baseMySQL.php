@@ -70,11 +70,11 @@ class BaseMySQL extends BaseDatos{
         //Este fue el método usao para json
     }
 
-  static public function verRegistros($tabla){
-    $sql = "select * from '$tabla'";
+  static public function verRegistros($pdo,$tabla){
+    $sql = "select * from $tabla";
     $query = $pdo->prepare($sql);
     $query->execute();
-    $registros = $query->fetch(PDO::FETCH_ASSOC);
+    $registros = $query->fetchAll(PDO::FETCH_ASSOC);
     return $registros;
   }
 }
