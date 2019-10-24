@@ -49,6 +49,14 @@ class ArmarRegistro{
     $query->execute();
   }
 
+  public static function eliminarImgPerfil($pdo,$id){
+    $sql = "SELECT perfil FROM usuarios WHERE id LIKE $id";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    $perfil = $query->fetch(PDO::FETCH_ASSOC);
+    unlink("images/perfil/".$perfil["perfil"]);
+  }
+
   public static function guardarPerfil($pdo,$id,$imagen){
     $nombre = $imagen["imagen"]["name"];
     $ext = pathinfo($nombre, PATHINFO_EXTENSION);
@@ -56,8 +64,14 @@ class ArmarRegistro{
     $rutaDestino = dirname(__DIR__);
     $rutaDestino = $rutaDestino."/images/perfil/";
     $nombreImg = uniqid();
-    $rutaDestino = $rutaDestino.".".$nombreImg.".".$ext;
+    $rutaDestino = $rutaDestino.$nombreImg.".".$ext;
     move_uploaded_file ($archivoOrigen, $rutaDestino);
+
+    $sql = "UPDATE usuarios SET perfil ='$nombreImg."."$ext' WHERE id ='$id'";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+
+
 
   }
 }

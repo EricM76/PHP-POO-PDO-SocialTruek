@@ -10,5 +10,15 @@ if (isset($_GET["avatar"])) {
   ArmarRegistro::cambiarAvatar($_GET["id"], $_GET["avatar"],$pdo);
   header("location:registros.php");
 }
-  ArmarRegistro::guardarPerfil($pdo,$_POST["id"],$_FILES)
+  // $id = $_POST["id"];
+  // $sql = "SELECT perfil FROM usuarios WHERE id LIKE $id";
+  // $query = $pdo->prepare($sql);
+  // $query->execute();
+  // $perfil = $query->fetch(PDO::FETCH_ASSOC);
+  // unlink("images/perfil/.".$perfil["perfil"]);
+  // exit;
+  ArmarRegistro::eliminarImgPerfil($pdo,$_POST["id"]);
+  ArmarRegistro::guardarPerfil($pdo,$_POST["id"],$_FILES);
+  header("location:registros.php");
+
 ?>
