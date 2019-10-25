@@ -57,26 +57,51 @@ class BaseMySQL extends BaseDatos{
         $guardarCat->execute();
     }
 
-    public function leer(){
-        //A futuro trabajaremos en esto
-    }
-    public function actualizar(){
-        //A futuro trabajaremos en esto
-    }
-    public function borrar(){
-        //A futuro trabajaremos en esto
-    }
-    public function guardar($usuario){
-        //Este fue el método usao para json
+    static public function verCategorias($pdo){
+      $sql = "SELECT * FROM categorias";
+      $query = $pdo -> prepare($sql);
+      $query -> execute();
+      $categorias = $query -> fetchAll(PDO::FETCH_ASSOC);
+      return $categorias;
     }
 
-  static public function verRegistros($pdo,$tabla){
-    $sql = "select * from $tabla";
-    $query = $pdo->prepare($sql);
-    $query->execute();
-    $registros = $query->fetchAll(PDO::FETCH_ASSOC);
-    return $registros;
+
+    static public function verRegistros($pdo,$tabla){
+      $sql = "SELECT * FROM $tabla";
+      $query = $pdo->prepare($sql);
+      $query->execute();
+      $registros = $query->fetchAll(PDO::FETCH_ASSOC);
+      return $registros;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  public function leer(){
+      //A futuro trabajaremos en esto
   }
+  public function actualizar(){
+      //A futuro trabajaremos en esto
+  }
+  public function borrar(){
+      //A futuro trabajaremos en esto
+  }
+  public function guardar($usuario){
+      //Este fue el método usao para json
+  }
+
 }
 
 

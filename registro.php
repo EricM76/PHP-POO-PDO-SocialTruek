@@ -19,6 +19,7 @@ if ($_POST){
 
         $usuario = ArmarRegistro::armarUsuario($_POST, $avatar);
         BaseMySQL::guardarUsuario($pdo, $usuario);
+        header("location:registros.php");
       }
   }else{
     var_dump($errores);
