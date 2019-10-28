@@ -1,6 +1,9 @@
 <?php
 include("autoload.php");
-
+if ($_POST) {
+  vardump($_FILES);
+  // var_dump($_POST);
+}
 
  ?>
  <!DOCTYPE html>
@@ -14,11 +17,10 @@ include("autoload.php");
    <body>
      <div class="container">
 
-      <form class="form-horizontal mt-5" action="producto.php" method="post">
+      <form class="form-horizontal mt-5" action="producto.php" method="post" enctype="multipart/form-data">
         <div class="row">
 
         <div class="col-6">
-          <!-- Text input-->
           <div class="form-group">
             <label class="control-label" for="titulo">Titulo</label>
             <div class="">
@@ -35,7 +37,7 @@ include("autoload.php");
 
         <div class="form-group">
           <label for="categoria">Categoria</label>
-            <select class="form-control" id="categoria">
+            <select class="form-control" id="categoria" name="categoria">
             <?php
             $categorias = BaseMySQL::verCategorias($pdo);
             foreach ($categorias as $categoria) :?>
@@ -45,18 +47,22 @@ include("autoload.php");
             <?php endforeach; ?>
           </select>
         </div>
+
+        <div class="custom-file">
+          <input type="file" class="" id="imagen" name="imagen">
+          <label class="" for="imagen"></label>
+        </div>
+
       </div>
 
         <div class="col-6">
           <div class="form-group">
             <label for="descripcion">Descripcion</label>
-            <textarea class="form-control" id="descripcion" rows="8" placeholder="descripcion detallada del producto a truekear"></textarea>
+            <textarea class="form-control" id="descripcion" rows="8" placeholder="descripcion detallada del producto a truekear" required></textarea>
           </div>
         </div>
       </div>
 
-
-      <!-- Button -->
       <div class="d-flex justify-content-end">
         <div class="form-group">
           <div class="">

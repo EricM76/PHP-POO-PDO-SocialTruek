@@ -12,57 +12,31 @@
         <h5 class="text-center mb-3">cambia un avatar</h5>
         <?php $id=$_GET["id"]?>
             <a href="cambiarAvatar.php?avatar=perfilDesconocido.png & id=<?=$id?>"><img src="images/avatar/perfilDesconocido.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=perfilHombre.png & id=<?=$id?>"><img src="images/avatar/perfilHombre.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=perfilMujer.png & id=<?=$id?>"><img src="images/avatar/perfilMujer.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar01.png & id=<?=$id?>"><img src="images/avatar/avatar01.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar02.png & id=<?=$id?>"><img src="images/avatar/avatar02.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar03.png & id=<?=$id?>"><img src="images/avatar/avatar03.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar04.png & id=<?=$id?>"><img src="images/avatar/avatar04.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar05.png & id=<?=$id?>"><img src="images/avatar/avatar05.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar06.png & id=<?=$id?>"><img src="images/avatar/avatar06.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar07.png & id=<?=$id?>"><img src="images/avatar/avatar07.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar08.png & id=<?=$id?>"><img src="images/avatar/avatar08.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar09.png & id=<?=$id?>"><img src="images/avatar/avatar09.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar10.png & id=<?=$id?>"><img src="images/avatar/avatar10.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar11.png & id=<?=$id?>"><img src="images/avatar/avatar11.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar12.png & id=<?=$id?>"><img src="images/avatar/avatar12.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar13.png & id=<?=$id?>"><img src="images/avatar/avatar13.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar14.png & id=<?=$id?>"><img src="images/avatar/avatar14.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar15.png & id=<?=$id?>"><img src="images/avatar/avatar15.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar16.png & id=<?=$id?>"><img src="images/avatar/avatar16.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar17.png & id=<?=$id?>"><img src="images/avatar/avatar17.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar18.png & id=<?=$id?>"><img src="images/avatar/avatar18.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar19.png & id=<?=$id?>"><img src="images/avatar/avatar19.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar20.png & id=<?=$id?>"><img src="images/avatar/avatar20.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar21.png & id=<?=$id?>"><img src="images/avatar/avatar21.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar22.png & id=<?=$id?>"><img src="images/avatar/avatar22.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar23.png & id=<?=$id?>"><img src="images/avatar/avatar23.png" style="width:80px"></a>
-
             <a href="cambiarAvatar.php?avatar=avatar24.png & id=<?=$id?>"><img src="images/avatar/avatar24.png" style="width:80px"></a>
 
           <div class="d-flex mt-5">
