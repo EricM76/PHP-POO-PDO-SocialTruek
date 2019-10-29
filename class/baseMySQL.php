@@ -32,14 +32,6 @@ class BaseMySQL extends BaseDatos{
         return $registro;
     }
 
-    static public function verCategorias($pdo){
-      $sql = "SELECT * FROM categorias";
-      $query = $pdo -> prepare($sql);
-      $query -> execute();
-      $categorias = $query -> fetchAll(PDO::FETCH_ASSOC);
-      return $categorias;
-    }
-
     static public function verRegistros($pdo,$tabla){
       $sql = "SELECT * FROM $tabla";
       $query = $pdo->prepare($sql);
