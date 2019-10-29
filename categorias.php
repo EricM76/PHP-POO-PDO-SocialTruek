@@ -1,6 +1,5 @@
 <?php
 include("autoload.php");
-
  ?>
  <!DOCTYPE html>
  <html lang="es" dir="ltr">
@@ -13,10 +12,7 @@ include("autoload.php");
    <body class="">
      <div class="container-fluid mt-3 col-6">
        <?php
-       $sql = "SELECT * FROM categorias";
-       $query = $pdo->prepare($sql);
-       $query->execute();
-       $registros = $query->fetchAll(PDO::FETCH_ASSOC);
+       $registros = BaseMySQL::verRegistros($pdo,'categorias');
        ?>
        <table class="table table-
        light small">

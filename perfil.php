@@ -13,13 +13,11 @@ include("autoload.php");
    <body>
 
          <?php
-         $dato=$_GET["id"];
-         $sql = "SELECT * FROM usuarios WHERE id LIKE '$dato'";
-         $query = $pdo->prepare($sql);
-         $query->execute();
-         $registros = $query->fetchAll(PDO::FETCH_ASSOC);
+         $id=$_GET["id"];
+         //genera una consulta a la bd que devuelve el usuario correpondiente al id proporcionado
+         $registro = BaseMySQL::verUsuario($pdo,$id);
          ?>
-         <?php foreach ($registros as $registro): ?>
+         <?php foreach ($registro as $dato): ?>
            <div class="row">
             <div class="col-2 text-right">
                <h5 class="mt-5">id:</h5>
@@ -35,24 +33,24 @@ include("autoload.php");
              </div>
 
              <div class="col-7 text-left">
-               <h5 class="mt-5"><?=$registro["id"];?></h5>
-               <h5 class=""><?=$registro["nombre"]?></h5>
-               <h5 class=""><?=$registro["apellido"]?></h5>
-               <h5 class=""><?=$registro["email"]?></h5>
-               <h5 class=""><?=$registro["pass"]?></h5>
-               <h5 class=""><?=$registro["fecha"]?></h5>
-               <h5 class=""><?=$registro["sexo"]?></h5>
-               <h5 class=""><?=$registro["avatar"]?></h5>
-               <h5 class=""><?=$registro["perfil"]?></h5>
-               <h5 class=""><?=$registro["val_user"]?></h5>
+               <h5 class="mt-5"><?=$dato["id"];?></h5>
+               <h5 class=""><?=$dato["nombre"]?></h5>
+               <h5 class=""><?=$dato["apellido"]?></h5>
+               <h5 class=""><?=$dato["email"]?></h5>
+               <h5 class=""><?=$dato["pass"]?></h5>
+               <h5 class=""><?=$dato["fecha"]?></h5>
+               <h5 class=""><?=$dato["sexo"]?></h5>
+               <h5 class=""><?=$dato["avatar"]?></h5>
+               <h5 class=""><?=$dato["perfil"]?></h5>
+               <h5 class=""><?=$dato["val_user"]?></h5>
              </div>
 
              <div class="col-3 mt-5 text-center">
                <h5>Avatar</h5>
-               <img src="images/avatar/<?=$registro["avatar"]?>" alt="" width="100px">
+               <img src="images/avatar/<?=$dato["avatar"]?>" alt="" width="100px">
                <br><br>
                <h5>Imagen de Perfil</h5>
-               <img class="" src="images/perfil/<?=$registro["perfil"]?>" alt="" width="100px">
+               <img class="" src="images/perfil/<?=$dato["perfil"]?>" alt="" width="100px">
 
              </div>
 
@@ -64,27 +62,25 @@ include("autoload.php");
    <div class="row">
 
      <div class="col-4 text-center mt-5">
-       <?php if ($registro["id"]>1){?>
-        <a href="perfil.php?id=<?=$registro["id"]-1?>">anterior</a>
+       <?php if ($dato["id"]>1){?>
+        <a href="perfil.php?id=<?=$dato["id"]-1?>">anterior</a>
        <?php }else {?>
-        <a href="perfil.php?id=<?=$registro["id"]?>">anterior</a>
+        <a href="perfil.php?id=<?=$dato["id"]?>">anterior</a>
        <?php } ?>
        <a> ------ </a>
        <?php
-       $sql = "SELECT count(*) AS count FROM usuarios";
-       $query = $pdo->prepare($sql);
-       $query->execute();
-       $contador = $query->fetch(PDO::FETCH_ASSOC);
-       $count = $contador["count"];
-       if ($registro["id"]<$count){
+       //genera una consulta que devuelve la cantidad de usuarios registrados
+       $count = BaseMySQL::contarUsuarios($pdo);
+
+       if ($dato["id"]<$count){
         ?>
-         <a href="perfil.php?id=<?=$registro["id"]+1 ?>">siguiente</a>
+         <a href="perfil.php?id=<?=$dato["id"]+1 ?>">siguiente</a>
        <?php }else{ ?>
-         <a href="perfil.php?id=<?=$registro["id"]?>">siguiente</a>
+         <a href="perfil.php?id=<?=$dato["id"]?>">siguiente</a>
        <?php } ?>
      </div>
      <div class="col-4">
-       <a href="producto.php?id=<?=$registro["id"] ?>"><button class="btn-success" type="button" name="button">PUBLICAR</button> </a>
+       <a href="producto.php?id=<?=$dato["id"] ?>"><button class="btn-success" type="button" name="button">PUBLICAR</button> </a>
      </div>
    </div>
 

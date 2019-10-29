@@ -1,5 +1,6 @@
 <?php
 class Usuario{
+  //declaracion de atributos
     private $nombre;
     private $apellido;
     private $email;
@@ -9,7 +10,8 @@ class Usuario{
     private $avatar;
     private $perfil;
     private $val_user;
-
+    
+//funcion constructora
     public function __construct($nombre, $apellido, $email, $pass, $fecha, $sexo, $avatar, $perfil, $val_user){
         $this->nombre = $nombre;
         $this->apellido = $apellido;

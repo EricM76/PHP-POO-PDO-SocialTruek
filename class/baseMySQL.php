@@ -32,31 +32,6 @@ class BaseMySQL extends BaseDatos{
         return $registro;
     }
 
-    static public function guardarUsuario($pdo, $usuario){
-        $sql = "INSERT INTO usuarios VALUES(default, :nombre, :apellido, :email, :pass, :fecha, :sexo, :avatar=null, :perfil=null, :val_user=null)";
-
-        $guardarUsu = $pdo->prepare($sql);
-        $guardarUsu->bindValue(':nombre', $usuario->getNombre());
-        $guardarUsu->bindValue(':apellido', $usuario->getApellido());
-        $guardarUsu->bindValue(':email', $usuario->getEmail());
-        $guardarUsu->bindValue(':pass', $usuario->getPass());
-        $guardarUsu->bindValue(':fecha', $usuario->getFecha());
-        $guardarUsu->bindValue(':sexo', $usuario->getSexo());
-        $guardarUsu->bindValue(':avatar', $usuario->getAvatar());
-        $guardarUsu->bindValue(':perfil', $usuario->getPerfil());
-        $guardarUsu->bindValue(':val_user', $usuario->getVal_user());
-
-        $guardarUsu->execute();
-    }
-
-    static public function guardarCategoria($pdo, $categoria){
-        $sql = "INSERT INTO categorias VALUES(default, :nombre)";
-
-        $guardarCat = $pdo->prepare($sql);
-        $guardarCat->bindValue(':nombre', $categoria->getNombre());
-        $guardarCat->execute();
-    }
-
     static public function verCategorias($pdo){
       $sql = "SELECT * FROM categorias";
       $query = $pdo -> prepare($sql);
@@ -64,7 +39,6 @@ class BaseMySQL extends BaseDatos{
       $categorias = $query -> fetchAll(PDO::FETCH_ASSOC);
       return $categorias;
     }
-
 
     static public function verRegistros($pdo,$tabla){
       $sql = "SELECT * FROM $tabla";
@@ -74,6 +48,30 @@ class BaseMySQL extends BaseDatos{
       return $registros;
     }
 
+    static public function verUsuario($pdo,$id){
+      $sql = "SELECT * FROM usuarios WHERE id LIKE '$id'";
+      $query = $pdo->prepare($sql);
+      $query->execute();
+      $registro = $query->fetchAll(PDO::FETCH_ASSOC);
+      return $registro;
+    }
+
+    static public function contarUsuarios($pdo){
+      $sql = "SELECT count(*) AS count FROM usuarios";
+      $query = $pdo->prepare($sql);
+      $query->execute();
+      $contador = $query->fetch(PDO::FETCH_ASSOC);
+      $count = $contador["count"];
+      return $count;
+    }
+
+    public static function eliminarImgPerfil($pdo,$id){
+      $sql = "SELECT perfil FROM usuarios WHERE id LIKE $id";
+      $query = $pdo->prepare($sql);
+      $query->execute();
+      $perfil = $query->fetch(PDO::FETCH_ASSOC);
+      unlink("images/perfil/".$perfil["perfil"]);
+    }
 
 
 

@@ -8,8 +8,8 @@ if ($_POST) {
     $errores[] = "La categoria ya existe";
 
   } else {
-    $registro = ArmarRegistro::armarCategoria($_POST);
-    BaseMySQL::guardarCategoria($pdo, $registro);
+    $registro = RegistrarCategorias::crearCategoria($_POST);
+    RegistrarCategorias::guardarCategoria($pdo, $registro);
 }
 }
  ?>

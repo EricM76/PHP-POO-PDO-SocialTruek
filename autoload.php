@@ -2,13 +2,15 @@
 session_start();
 
 require_once("class/baseDeDatos.php");
-require_once("class/armarRegistro.php");
 require_once("class/autenticacion.php");
 require_once("class/baseMySQL.php");
 require_once("class/producto.php");
 require_once("class/usuario.php");
 require_once("class/validacion.php");
 require_once("class/categoria.php");
+require_once("class/registrarProductos.php");
+require_once("class/registrarUsuarios.php");
+
 
 
 $host = "localhost";
@@ -20,7 +22,8 @@ $charset = "utf8mb4";
 
 $pdo = BaseMySQL::conexion($host,$bd,$usuario,$password,$puerto,$charset);
 
-$validador = new Validacion();
+$validadorUsuario = new RegistrarUsuarios();
+$validadorProducto = new RegistrarProductos();
 
 function varDump($variable){
   echo "<pre>";

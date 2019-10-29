@@ -2,23 +2,21 @@
 include("autoload.php");
 
 if ($_POST){
-
-  $errores = $validador->validarRegistro($_POST);
-
+//genera una array de errores llamando a la funcion de validacion
+  $errores = $validadorUsuario->validarDatosUser($_POST);
+//verifica que no haya errores
   if (count($errores) == 0) {
-
+    //busca si el email está registrado
       $usuario = BaseMySQL::buscarPorEmail($_POST["email"], $pdo, 'usuarios');
-
+      //si está registrado devuelve un error
       if ($usuario != null) {
         $errores[] = "El email ya se encuentra registrado";
         var_dump($errores);
-
+        //si no está registrado continúa con el registro
       } else {
-        // $avatar = ArmarRegistro::armarImagen($_FILES);
-        $avatar = null;
-
-        $usuario = ArmarRegistro::armarUsuario($_POST, $avatar);
-        BaseMySQL::guardarUsuario($pdo, $usuario);
+        //genera un usuario
+        $usuario = RegistrarUsuarios::crearUsuario($_POST);
+        RegistrarUsuarios::guardarUsuario($pdo, $usuario);
         header("location:registros.php");
       }
   }else{
@@ -43,7 +41,7 @@ if ($_POST){
           <div class="form-group col-6">
             <label class="control-label" for="nombre">Nombre</label>
             <div class="">
-            <input id="nombre" name="nombre" type="text" placeholder="nombre" class="form-control input-md" required="">
+            <input id="nombre" name="nombre" type="text" placeholder="nombre" class="form-control input-md">
             </div>
           </div>
 
@@ -51,7 +49,7 @@ if ($_POST){
           <div class="form-group col-6">
             <label class="control-label" for="apellido">Apellido</label>
             <div class="">
-            <input id="apellido" name="apellido" type="text" placeholder="apellido" class="form-control input-md" required="">
+            <input id="apellido" name="apellido" type="text" placeholder="apellido" class="form-control input-md">
             </div>
           </div>
         </div>

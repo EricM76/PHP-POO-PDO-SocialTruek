@@ -72,10 +72,14 @@ include("autoload.php");
 
 
    <?php
+   //codigo de la ventana emergente que permite seleccionar la imagen de avatar o subir la imagen de perfil
    include_once("editarAvatar.php");
+   //codigo para habilitar el uso de javascript
    include_once("javascript.php");
    ?>
+   <!-- si la pagina vuelve a cargarse recibe el id por $_GET -->
    <?php if (isset($_GET["id"])): ?>
+    <!-- funcion en javascript que permite recibir un dato por $_GET y volver a cargar la pagina y abrir una ventana emergente -->
      <script type="text/javascript">
       $(function(){
        $("#avatar").modal();
