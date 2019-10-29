@@ -15,6 +15,7 @@
          <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
        </li>
        <li class="nav-item dropdown">
+         <!-- menu de usuarios -->
          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            Usuarios
          </a>
@@ -25,16 +26,17 @@
          </div>
        </li>
        <li class="nav-item dropdown">
+         <!-- menu de productos -->
          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            Productos
          </a>
          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-           <a class="dropdown-item" href="#">Nuevo</a>
-           <a class="dropdown-item" href="#">Ver por categoria</a>
-           <a class="dropdown-item" href="#">Ver por usuario</a>
+           <a class="dropdown-item" href="productos.php">Todos</a>
+           <a class="dropdown-item" href="#">Buscar</a>
          </div>
        </li>
        <li class="nav-item dropdown">
+         <!-- menu de categorias -->
          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            Categorias
          </a>
