@@ -8,7 +8,7 @@ include("autoload.php");
      <?php include("head.php")?>
      <title>Productos</title>
    </head>
-   <?php include("header.php") ?>
+   <?php include("header.php")?>
    <body class="">
      <div class="container-fluid mt-3">
        <?php
